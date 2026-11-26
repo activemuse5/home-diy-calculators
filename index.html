@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Concrete, Paint, Tile &amp; Flooring Calculators — Free Home DIY Calculators</title>
+<meta name="description" content="Free concrete, paint, square footage, mulch, tile and flooring calculators with printable materials lists. No sign-up, nothing uploaded." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://muse.ai/s/home-diy-calculators" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Concrete, Paint, Tile &amp; Flooring Calculators — Free Home DIY Calculators" />
+<meta property="og:description" content="Free home &amp; DIY calculators with printable materials lists. No sign-up, nothing uploaded, everything calculated in your browser." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Concrete, Paint, Tile &amp; Flooring Calculators — Free Home DIY Calculators" />
+<meta name="twitter:description" content="Free home &amp; DIY calculators with printable materials lists. No sign-up, nothing uploaded." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Home DIY Calculators",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free concrete, paint, square footage, mulch & gravel, tile and flooring calculators with printable materials lists. No sign-up; all calculations run in your browser."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much concrete do I need for a 10×10 slab?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A 10 ft × 10 ft slab at 4 inches thick needs 33.33 cubic feet of concrete, which is 1.23 cubic yards. If you are mixing bags yourself, that is 56 bags of 80-lb mix or 75 bags of 60-lb mix. For ready-mix delivery, order 1.23 cubic yards plus a small extra allowance for spillage and an uneven base." }
+    },
+    {
+      "@type": "Question",
+      "name": "How many gallons of paint do I need for a 12×10 room?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For a 12 ft × 10 ft room with 8 ft ceilings, one door and two windows, the paintable wall area is 301 sq ft. At two coats and 350 sq ft of coverage per gallon, you need 1.72 gallons, so buy 2 gallons. One coat would need about 0.86 gallons, so buy 1 gallon." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much extra should I buy for waste?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For tile and flooring, 10% extra is the standard starting point for straight layouts in rectangular rooms. Use 15% or more for diagonal layouts, patterned tiles, or rooms with many corners and cuts. The waste allowance covers cuts, breakages and mistakes, and leaves you a few spares for future repairs." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this site free, and is my data collected?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, every calculator is free with no sign-up. Nothing you type is collected, stored or sent anywhere: all calculations run entirely in your own browser, and this site has no accounts, no tracking and no analytics." }
+    }
+  ]
+}
+</script>
+<style>
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface2:#efece4; --ink:#1d2126; --ink2:#4c5560;
+    --line:#d9d4c7; --accent:#b34a12; --accent-ink:#ffffff; --accent-soft:#fbeadd;
+    --good:#1e6b3a; --radius:10px; --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --sans:"Libre Franklin",system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#16181b; --surface:#1f2226; --surface2:#262a2f; --ink:#eceae4; --ink2:#a9b0b8;
+      --line:#3a3f45; --accent:#e07b39; --accent-ink:#1a1208; --accent-soft:#33241a; --good:#5fc98a;
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;font-size:16px}
+  button,[role="button"],select,summary,input:not([type="checkbox"]){min-height:2.25rem}
+  input[type="checkbox"]{width:1.25rem;height:1.25rem;accent-color:var(--accent)}
+  a{color:var(--accent)}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 18px}
+  header.site{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:20}
+  header.site .wrap{display:flex;align-items:center;gap:14px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
+  .brand{font-weight:800;font-size:1.05rem;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+  .brand span{color:var(--accent)}
+  nav.main{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+  nav.main a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem;padding:8px 10px;border-radius:8px;min-height:36px;display:inline-flex;align-items:center}
+  nav.main a:hover{background:var(--surface2)}
+  .hero{padding:44px 0 10px}
+  .hero h1{font-size:clamp(1.9rem,4.6vw,2.9rem);line-height:1.12;letter-spacing:-.02em;margin:0 0 14px;font-weight:800}
+  .hero p.lede{font-size:1.12rem;color:var(--ink2);max-width:44rem;margin:0 0 22px}
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 8px}
+  .fact{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px}
+  .fact b{display:block;font-size:1.25rem;font-family:var(--mono);font-weight:600}
+  .fact span{font-size:.85rem;color:var(--ink2)}
+  h2.sec{font-size:1.55rem;letter-spacing:-.015em;margin:44px 0 6px;font-weight:800}
+  .sec-sub{color:var(--ink2);margin:0 0 18px;max-width:44rem}
+  .start-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+  .start-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;text-decoration:none;color:var(--ink);display:block}
+  .start-card:hover{border-color:var(--accent)}
+  .start-card .ic{font-size:1.5rem;display:block;margin-bottom:8px}
+  .start-card b{display:block;font-size:1.05rem;margin-bottom:4px}
+  .start-card span{color:var(--ink2);font-size:.92rem}
+  .tool{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin:0 0 22px;scroll-margin-top:80px}
+  .tool h3{margin:0 0 4px;font-size:1.3rem;letter-spacing:-.01em}
+  .tool .formula{font-family:var(--mono);font-size:.85rem;background:var(--surface2);border-radius:8px;padding:8px 12px;margin:10px 0 16px;white-space:normal;overflow-wrap:break-word;line-height:1.6}
+  .tool p.note{color:var(--ink2);font-size:.94rem}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media (max-width:760px){.grid{grid-template-columns:1fr}}
+  .fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .field label{display:block;font-size:.85rem;font-weight:600;margin-bottom:4px}
+  .field input,.field select{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:1rem;font-family:inherit}
+  .field .unit{font-size:.78rem;color:var(--ink2);font-weight:400}
+  .check{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:.95rem}
+  .check label{min-height:36px;display:inline-flex;align-items:center;cursor:pointer}
+  .results{background:var(--accent-soft);border-radius:var(--radius);padding:16px 18px}
+  .results h4{margin:0 0 10px;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2)}
+  .rrow{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px dashed var(--line)}
+  .rrow:last-of-type{border-bottom:none}
+  .rrow .k{color:var(--ink2);font-size:.94rem}
+  .rrow .v{font-family:var(--mono);font-weight:600;text-align:right;white-space:nowrap}
+  .rrow.buy .v{color:var(--accent);font-size:1.08rem}
+  .matlist{margin-top:14px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:.92rem}
+  .matlist b{display:block;margin-bottom:4px;font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink2)}
+  .copybtn{margin-top:10px;background:var(--accent);color:var(--accent-ink);border:none;border-radius:8px;padding:9px 16px;font-weight:700;font-size:.92rem;cursor:pointer;font-family:inherit;min-height:40px}
+  .copybtn:hover{opacity:.9}
+  .copied{font-size:.85rem;color:var(--good);margin-left:8px}
+  .guide{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;margin:0 0 20px;scroll-margin-top:80px}
+  .guide h3{margin:0 0 10px;font-size:1.25rem}
+  .guide p{color:var(--ink2);max-width:46rem}
+  .guide p b,.guide li b{color:var(--ink)}
+  .guide .ex{font-family:var(--mono);font-size:.9rem;background:var(--surface2);border-radius:8px;padding:10px 14px;margin:12px 0;white-space:normal;overflow-wrap:break-word;line-height:1.6}
+  .cta{display:inline-block;margin-top:8px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:700;padding:10px 18px;border-radius:8px;min-height:40px}
+  details.faq{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);margin:0 0 10px;padding:4px 18px}
+  details.faq summary{font-weight:700;cursor:pointer;padding:12px 0;min-height:44px;display:flex;align-items:center}
+  details.faq p{color:var(--ink2);margin:0 0 14px;max-width:46rem}
+  .trust{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin:0 0 18px;scroll-margin-top:80px}
+  .trust h3{margin:0 0 8px;font-size:1.15rem}
+  .trust p{color:var(--ink2);margin:0 0 10px;max-width:46rem}
+  footer{border-top:1px solid var(--line);margin-top:48px;padding:26px 0 40px;color:var(--ink2);font-size:.9rem}
+  footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;margin-bottom:18px}
+  footer h4{color:var(--ink);margin:0 0 8px;font-size:.95rem}
+  footer ul{list-style:none;margin:0;padding:0}
+  footer li{margin:4px 0}
+  footer a{color:var(--ink2)}
+  .revline{font-family:var(--mono);font-size:.85rem}
+  @media print{.tool,.guide{break-inside:avoid}header.site,.copybtn,.start-grid{display:none}}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">Home <span>DIY</span> Calculators</a>
+    <nav class="main" aria-label="Main">
+      <a href="#tools">Tools</a>
+      <a href="#guides">Guides</a>
+      <a href="#faq">FAQ</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <section class="hero">
+    <h1>Work out exactly what to buy — before you go to the store.</h1>
+    <p class="lede">Six free home &amp; DIY calculators — no sign-up, nothing uploaded, results include a printable materials list. Enter your measurements and get exact quantities: cubic yards, bags, gallons, tiles and boxes, rounded up to what you actually buy.</p>
+    <div class="facts" aria-label="Site facts">
+      <div class="fact"><b>6</b><span>working calculators</span></div>
+      <div class="fact"><b>100%</b><span>client-side — runs in your browser</span></div>
+      <div class="fact"><b>$0</b><span>free to use, no sign-up</span></div>
+      <div class="fact"><b>$0.00</b><span>revenue — monetization not active</span></div>
+    </div>
+  </section>
+
+  <h2 class="sec">Start here — pick your project</h2>
+  <p class="sec-sub">Jump straight to the calculator for the job in front of you.</p>
+  <div class="start-grid">
+    <a class="start-card" href="#concrete"><b>Pouring concrete</b><span>Slabs, footings and pads — cubic yards plus 60-lb and 80-lb bag counts.</span></a>
+    <a class="start-card" href="#paint"><b>Painting a room</b><span>Wall area minus doors and windows, coats and coverage — gallons to buy.</span></a>
+    <a class="start-card" href="#tile"><b>Floors &amp; tiles</b><span>Square footage, tile counts and flooring boxes with a waste allowance.</span></a>
+    <a class="start-card" href="#mulch-gravel"><b>Yard &amp; garden</b><span>Mulch, gravel and soil by area and depth — cubic yards and bag counts.</span></a>
+  </div>
+
+  <h2 class="sec" id="tools">The calculators</h2>
+  <p class="sec-sub">Every result updates as you type. Purchasable quantities are rounded <b>up</b> to whole bags, gallons and boxes, with the exact figure shown alongside.</p>
+
+  <!-- 1. CONCRETE -->
+  <section class="tool" id="concrete" aria-labelledby="concrete-h">
+    <h3 id="concrete-h">1. Concrete Calculator</h3>
+    <p class="note">For slabs, pads and footings. Enter the length and width of the pour and how thick it will be.</p>
+    <div class="formula">Volume (cu ft) = length × width × (thickness ÷ 12) · Cubic yards = cu ft ÷ 27 · 80-lb bag = 0.6 cu ft · 60-lb bag = 0.45 cu ft</div>
+    <div class="grid">
+      <div>
+        <div class="fields">
+          <div class="field"><label for="c-len">Length <span class="unit">(ft)</span></label><input id="c-len" type="number" inputmode="decimal" min="0" step="any" value="10"></div>
+          <div class="field"><label for="c-wid">Width <span class="unit">(ft)</span></label><input id="c-wid" type="number" inputmode="decimal" min="0" step="any" value="10"></div>
+          <div class="field"><label for="c-thk">Thickness <span class="unit">(in)</span></label><input id="c-thk" type="number" inputmode="decimal" min="0" step="any" value="4"></div>
+        </div>
+        <p class="note">A 4-inch thickness is standard for patios, walkways and shed bases; driveways are usually 5–6 inches. Add about 10% extra volume if your base is uneven. <a href="#guide-concrete">Read the concrete guide →</a></p>
+      </div>
+      <div class="results" aria-live="polite">
+        <h4>Results</h4>
+        <div class="rrow"><span class="k">Volume</span><span class="v" id="c-vol">33.33 cu ft</span></div>
+        <div class="rrow"><span class="k">Cubic yards (ready-mix)</span><span class="v" id="c-yd">1.23 yd³</span></div>
+        <div class="rrow buy"><span class="k">80-lb bags to buy</span><span class="v" id="c-b80">56 bags</span></div>
+        <div class="rrow buy"><span class="k">60-lb bags to buy</span><span class="v" id="c-b60">75 bags</span></div>
+        <div class="matlist"><b>Materials list</b><span id="c-list">Concrete for a 10 × 10 ft slab, 4 in thick: 1.23 yd³ ready-mix, or 56 × 80-lb bags, or 75 × 60-lb bags.</span></div>
+        <button class="copybtn" type="button" data-copy="c-list">Copy materials list</button><span class="copied" aria-live="polite"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. PAINT -->
+  <section class="tool" id="paint" aria-labelledby="paint-h">
+    <h3 id="paint-h">2. Paint Calculator</h3>
+    <p class="note">Works out the paintable wall area of a rectangular room, subtracts doors and windows, and applies your number of coats.</p>
+    <div class="formula">Wall area = 2 × (length + width) × height − (doors × 21 sq ft) − (windows × 15 sq ft) · Gallons = area × coats ÷ coverage per gallon</div>
+    <div class="grid">
+      <div>
+        <div class="fields">
+          <div class="field"><label for="p-len">Room length <span class="unit">(ft)</span></label><input id="p-len" type="number" inputmode="decimal" min="0" step="any" value="12"></div>
+          <div class="field"><label for="p-wid">Room width <span class="unit">(ft)</span></label><input id="p-wid" type="number" inputmode="decimal" min="0" step="any" value="10"></div>
+          <div class="field"><label for="p-hgt">Ceiling height <span class="unit">(ft)</span></label><input id="p-hgt" type="number" inputmode="decimal" min="0" step="any" value="8"></div>
+          <div class="field"><label for="p-doors">Doors <span class="unit">(21 sq ft each)</span></label><input id="p-doors" type="number" inputmode="numeric" min="0" step="1" value="1"></div>
+          <div class="field"><label for="p-wins">Windows <span class="unit">(15 sq ft each)</span></label><input id="p-wins" type="number" inputmode="numeric" min="0" step="1" value="2"></div>
+          <div class="field"><label for="p-coats">Coats</label><input id="p-coats" type="number" inputmode="numeric" min="1" step="1" value="2"></div>
+          <div class="field"><label for="p-cov">Coverage <span class="unit">(sq ft per gallon)</span></label><input id="p-cov" type="number" inputmode="decimal" min="1" step="any" value="350"></div>
+        </div>
+        <div class="check"><input type="checkbox" id="p-ceil"><label for="p-ceil">Include the ceiling (adds length × width)</label></div>
+        <p class="note">350 sq ft per gallon is a typical wall-paint coverage; rough or unprimed surfaces cover less — check the tin. Primer is separate: one coat of primer uses roughly the single-coat figure. <a href="#guide-paint">Read the paint guide →</a></p>
+      </div>
+      <div class="results" aria-live="polite">
+        <h4>Results</h4>
+        <div class="rrow"><span class="k">Paintable area (one coat)</span><span class="v" id="p-area">301 sq ft</span></div>
+        <div class="rrow"><span class="k">Total to cover (all coats)</span><span class="v" id="p-cover">602 sq ft</span></div>
+        <div class="rrow"><span class="k">Gallons (exact)</span><span class="v" id="p-exact">1.72 gal</span></div>
+        <div class="rrow buy"><span class="k">Gallons to buy</span><span class="v" id="p-buy">2 gal</span></div>
+        <div class="matlist"><b>Materials list</b><span id="p-list">Paint for a 12 × 10 ft room, 8 ft ceilings, 2 coats: buy 2 gallons (exact need 1.72 gal for 301 sq ft of wall).</span></div>
+        <button class="copybtn" type="button" data-copy="p-list">Copy materials list</button><span class="copied" aria-live="polite"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SQUARE FOOTAGE -->
+  <section class="tool" id="square-footage" aria-labelledby="sqft-h">
+    <h3 id="sqft-h">3. Square Footage Calculator</h3>
+    <p class="note">The starting point for almost every project: floors, walls, beds and plots. Pick a shape and measure it.</p>
+    <div class="formula">Rectangle: length × width · Circle: π × radius² · Triangle: base × height ÷ 2 · 1 sq ft = 0.0929 sq m</div>
+    <div class="grid">
+      <div>
+        <div class="fields">
+          <div class="field"><label for="s-shape">Shape</label>
+            <select id="s-shape">
+              <option value="rect" selected>Rectangle</option>
+              <option value="circle">Circle</option>
+              <option value="tri">Triangle</option>
+            </select>
+          </div>
+          <div class="field" id="s-f1"><label for="s-a" id="s-la">Length <span class="unit">(ft)</span></label><input id="s-a" type="number" inputmode="decimal" min="0" step="any" value="12"></div>
+          <div class="field" id="s-f2"><label for="s-b" id="s-lb">Width <span class="unit">(ft)</span></label><input id="s-b" type="number" inputmode="decimal" min="0" step="any" value="10"></div>
+        </div>
+        <p class="note">For an L-shaped room, split it into two rectangles, calculate each, and add them together. This figure feeds the tile, flooring and mulch calculators below. <a href="#guide-sqft">Read the measuring guide →</a></p>
+      </div>
+      <div class="results" aria-live="polite">
+        <h4>Results</h4>
+        <div class="rrow buy"><span class="k">Area</span><span class="v" id="s-ft">120 sq ft</span></div>
+        <div class="rrow"><span class="k">Area (metric)</span><span class="v" id="s-m">11.15 sq m</span></div>
+        <div class="matlist"><b>Materials list</b><span id="s-list">Area: 120 sq ft (11.15 sq m). Use this figure in the tile, flooring and mulch &amp; gravel calculators.</span></div>
+        <button class="copybtn" type="button" data-copy="s-list">Copy materials list</button><span class="copied" aria-live="polite"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. MULCH & GRAVEL -->
+  <section class="tool" id="mulch-gravel" aria-labelledby="mulch-h">
+    <h3 id="mulch-h">4. Mulch &amp; Gravel Calculator</h3>
+    <p class="note">For garden beds, paths and driveways. Enter the area to cover and how deep the layer should be.</p>
+    <div class="formula">Volume (cu ft) = area × (depth ÷ 12) · Cubic yards = cu ft ÷ 27 · Bags = volume ÷ 2 cu ft per bag</div>
+    <div class="grid">
+      <div>
+        <div class="fields">
+          <div class="field"><label for="m-mat">Material</label>
+            <select id="m-mat">
+              <option value="Mulch" selected>Mulch</option>
+              <option value="Gravel">Gravel</option>
+              <option value="Soil">Soil / compost</option>
+            </select>
+          </div>
+          <div class="field"><label for="m-area">Area <span class="unit">(sq ft)</span></label><input id="m-area" type="number" inputmode="decimal" min="0" step="any" value="100"></div>
+          <div class="field"><label for="m-depth">Depth <span class="unit">(in)</span></label><input id="m-depth" type="number" inputmode="decimal" min="0" step="any" value="3"></div>
+        </div>
+        <p class="note">3 inches is a good mulch depth for weed suppression; gravel paths usually want 2–3 inches over a compacted base. The material choice changes only the labels — the volume maths is identical.</p>
+      </div>
+      <div class="results" aria-live="polite">
+        <h4>Results</h4>
+        <div class="rrow"><span class="k">Volume</span><span class="v" id="m-vol">25 cu ft</span></div>
+        <div class="rrow"><span class="k">Cubic yards (bulk)</span><span class="v" id="m-yd">0.93 cu yd</span></div>
+        <div class="rrow buy"><span class="k">2-cu-ft bags to buy</span><span class="v" id="m-bags">13 bags</span></div>
+        <div class="matlist"><b>Materials list</b><span id="m-list">Mulch for 100 sq ft at 3 in deep: 0.93 cu yd in bulk, or 13 × 2-cu-ft bags.</span></div>
+        <button class="copybtn" type="button" data-copy="m-list">Copy materials list</button><span class="copied" aria-live="polite"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. TILE -->
+  <section class="tool" id="tile" aria-labelledby="tile-h">
+    <h3 id="tile-h">5. Tile Calculator</h3>
+    <p class="note">Counts tiles and boxes for a floor or wall, including your waste allowance for cuts and breakages.</p>
+    <div class="formula">Tile area (sq ft) = tile length × tile width ÷ 144 · Tiles = ceil(area × (1 + waste%) ÷ tile area) · Boxes = ceil(tiles ÷ tiles per box)</div>
+    <div class="grid">
+      <div>
+        <div class="fields">
+          <div class="field"><label for="t-area">Area to tile <span class="unit">(sq ft)</span></label><input id="t-area" type="number" inputmode="decimal" min="0" step="any" value="100"></div>
+          <div class="field"><label for="t-len">Tile length <span class="unit">(in)</span></label><input id="t-len" type="number" inputmode="decimal" min="0" step="any" value="12"></div>
+          <div class="field"><label for="t-wid">Tile width <span class="unit">(in)</span></label><input id="t-wid" type="number" inputmode="decimal" min="0" step="any" value="12"></div>
+          <div class="field"><label for="t-waste">Waste allowance <span class="unit">(%)</span></label><input id="t-waste" type="number" inputmode="decimal" min="0" step="any" value="10"></div>
+          <div class="field"><label for="t-box">Tiles per box</label><input id="t-box" type="number" inputmode="numeric" min="1" step="1" value="10"></div>
+        </div>
+        <p class="note">Use 10% waste for straight layouts, 15%+ for diagonal patterns. Grout: as a rough guide, a standard 10-lb bag of grout typically covers around 90–100 sq ft with 12×12 tiles and 1/8-in joints — always check the coverage printed on your grout bag, because joint width and tile thickness change it a lot. <a href="#guide-sqft">Why waste % matters →</a></p>
+      </div>
+      <div class="results" aria-live="polite">
+        <h4>Results</h4>
+        <div class="rrow"><span class="k">Each tile covers</span><span class="v" id="t-each">1 sq ft</span></div>
+        <div class="rrow buy"><span class="k">Tiles needed (incl. waste)</span><span class="v" id="t-tiles">110 tiles</span></div>
+        <div class="rrow buy"><span class="k">Boxes to buy</span><span class="v" id="t-boxes">11 boxes</span></div>
+        <div class="matlist"><b>Materials list</b><span id="t-list">Tiles for 100 sq ft with 12 × 12 in tiles and 10% waste: 110 tiles = 11 boxes of 10. Plus grout and adhesive per the coverage on their packaging.</span></div>
+        <button class="copybtn" type="button" data-copy="t-list">Copy materials list</button><span class="copied" aria-live="polite"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FLOORING -->
+  <section class="tool" id="flooring" aria-labelledby="floor-h">
+    <h3 id="floor-h">6. Flooring Calculator</h3>
+    <p class="note">For laminate, vinyl plank and engineered wood sold by the box. Enter your room area and the coverage printed on the box.</p>
+    <div class="formula">Coverage needed = area × (1 + waste%) · Boxes = ceil(coverage needed ÷ sq ft per box)</div>
+    <div class="grid">
+      <div>
+        <div class="fields">
+          <div class="field"><label for="f-area">Room area <span class="unit">(sq ft)</span></label><input id="f-area" type="number" inputmode="decimal" min="0" step="any" value="200"></div>
+          <div class="field"><label for="f-cov">Coverage per box <span class="unit">(sq ft)</span></label><input id="f-cov" type="number" inputmode="decimal" min="0" step="any" value="20"></div>
+          <div class="field"><label for="f-waste">Waste allowance <span class="unit">(%)</span></label><input id="f-waste" type="number" inputmode="decimal" min="0" step="any" value="10"></div>
+        </div>
+        <p class="note">10% waste suits straight plank layouts; herringbone and diagonal patterns need 15% or more. Buy all boxes from the same batch/dye lot where possible, and keep one spare box for future repairs. <a href="#guide-sqft">Why waste % matters →</a></p>
+      </div>
+      <div class="results" aria-live="polite">
+        <h4>Results</h4>
+        <div class="rrow"><span class="k">Coverage needed (incl. waste)</span><span class="v" id="f-need">220 sq ft</span></div>
+        <div class="rrow"><span class="k">Boxes (exact)</span><span class="v" id="f-exact">11.0</span></div>
+        <div class="rrow buy"><span class="k">Boxes to buy</span><span class="v" id="f-buy">11 boxes</span></div>
+        <div class="matlist"><b>Materials list</b><span id="f-list">Flooring for 200 sq ft with 10% waste: 220 sq ft of coverage = 11 boxes at 20 sq ft per box. Plus underlayment to match the room area.</span></div>
+        <button class="copybtn" type="button" data-copy="f-list">Copy materials list</button><span class="copied" aria-live="polite"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDES -->
+  <h2 class="sec" id="guides">Guides</h2>
+  <p class="sec-sub">Short, practical explainers behind the numbers — each with the same worked example the calculator uses.</p>
+
+  <article class="guide" id="guide-concrete">
+    <h3>How much concrete do I need? (formula + worked example)</h3>
+    <p>Concrete is sold by volume, so every slab question is really a volume question. Multiply the length by the width to get the area, then multiply by the thickness — remembering to convert thickness from inches into feet first by dividing by 12.</p>
+    <div class="ex">10 ft × 10 ft × (4 in ÷ 12) = 33.33 cu ft → 33.33 ÷ 27 = 1.23 cubic yards</div>
+    <p><b>Worked example:</b> a 10 × 10 ft patio slab, 4 inches thick, needs <b>33.33 cubic feet</b> of concrete — <b>1.23 cubic yards</b>. Ordered as ready-mix, you'd ask for 1.23 yd³ (most suppliers round delivery to the nearest quarter or half yard, and a small extra allowance covers spillage). Mixing it yourself from bags: an 80-lb bag yields about 0.6 cu ft, so 33.33 ÷ 0.6 = 55.6, rounded up to <b>56 bags</b>. With 60-lb bags (0.45 cu ft each) it's 33.33 ÷ 0.45 = 74.1, rounded up to <b>75 bags</b>.</p>
+    <p>Two habits save projects: always round bag counts <b>up</b> (you can't buy 0.6 of a bag, and running short mid-pour leaves a weak cold joint), and add roughly 10% volume when the ground underneath is uneven, because dips quietly eat concrete.</p>
+    <a class="cta" href="#concrete">Open the Concrete Calculator</a>
+  </article>
+
+  <article class="guide" id="guide-paint">
+    <h3>How much paint for a room?</h3>
+    <p>Paint the walls, not the room's floor area. The wall area of a rectangular room is the perimeter times the ceiling height: 2 × (length + width) × height. Then subtract what you won't paint — a standard door is about 21 sq ft and an average window about 15 sq ft.</p>
+    <div class="ex">2 × (12 + 10) × 8 = 352 sq ft − 21 (door) − 30 (2 windows) = 301 sq ft per coat</div>
+    <p><b>Worked example:</b> a 12 × 10 ft room with 8 ft ceilings, one door and two windows has <b>301 sq ft</b> of paintable wall. Two coats means covering 602 sq ft in total. At a typical coverage of 350 sq ft per gallon, that's 602 ÷ 350 = <b>1.72 gallons — so buy 2 gallons</b>.</p>
+    <p><b>Why coats and coverage matter:</b> coats multiply the area, they don't add a fixed amount — two coats of a dark colour over a light wall (or the reverse) genuinely need twice the paint of one coat. And coverage varies: the 350 sq ft figure assumes smooth, primed walls. Bare drywall, rough plaster and deep textures all drink more paint, so check the coverage printed on your tin and use that number in the calculator instead.</p>
+    <a class="cta" href="#paint">Open the Paint Calculator</a>
+  </article>
+
+  <article class="guide" id="guide-sqft">
+    <h3>How to measure square footage (and why waste % matters)</h3>
+    <p>For a rectangle, square footage is simply length × width, measured in feet. A 12 ft × 10 ft bedroom floor is <b>120 sq ft</b> (11.15 sq m). Measure wall-to-wall at floor level, and for L-shaped rooms, split the floor into rectangles, work out each one, and add them. Circles use π × radius²; triangles use base × height ÷ 2.</p>
+    <div class="ex">12 ft × 10 ft = 120 sq ft · 120 × 0.0929 = 11.15 sq m</div>
+    <p><b>Why waste % matters:</b> almost nothing is installed without cutting. Tiles get trimmed at edges and break; planks get cut at the end of every row. Buying exactly the measured area guarantees you run short. The standard fix is a waste allowance: <b>10%</b> for straight layouts — so 100 sq ft of tiling needs 110 tiles' worth of coverage, and 200 sq ft of flooring at 20 sq ft per box needs 220 sq ft of coverage, which is exactly <b>11 boxes</b>. Diagonal or patterned layouts waste more; use 15% or higher. The leftover is not wasted money — it's your repair stock when a tile cracks in three years and that design is discontinued.</p>
+    <a class="cta" href="#square-footage">Open the Square Footage Calculator</a>
+  </article>
+
+  <!-- FAQ -->
+  <h2 class="sec" id="faq">Frequently asked questions</h2>
+  <p class="sec-sub">Quick answers to the most common project questions.</p>
+
+  <details class="faq">
+    <summary>How much concrete do I need for a 10×10 slab?</summary>
+    <p>A 10 ft × 10 ft slab at 4 inches thick needs 33.33 cubic feet of concrete, which is 1.23 cubic yards. If you are mixing bags yourself, that is 56 bags of 80-lb mix or 75 bags of 60-lb mix. For ready-mix delivery, order 1.23 cubic yards plus a small extra allowance for spillage and an uneven base.</p>
+  </details>
+  <details class="faq">
+    <summary>How many gallons of paint do I need for a 12×10 room?</summary>
+    <p>For a 12 ft × 10 ft room with 8 ft ceilings, one door and two windows, the paintable wall area is 301 sq ft. At two coats and 350 sq ft of coverage per gallon, you need 1.72 gallons, so buy 2 gallons. One coat would need about 0.86 gallons, so buy 1 gallon.</p>
+  </details>
+  <details class="faq">
+    <summary>How much extra should I buy for waste?</summary>
+    <p>For tile and flooring, 10% extra is the standard starting point for straight layouts in rectangular rooms. Use 15% or more for diagonal layouts, patterned tiles, or rooms with many corners and cuts. The waste allowance covers cuts, breakages and mistakes, and leaves you a few spares for future repairs.</p>
+  </details>
+  <details class="faq">
+    <summary>Is this site free, and is my data collected?</summary>
+    <p>Yes, every calculator is free with no sign-up. Nothing you type is collected, stored or sent anywhere: all calculations run entirely in your own browser, and this site has no accounts, no tracking and no analytics.</p>
+  </details>
+
+  <!-- TRUST -->
+  <section class="trust" id="about">
+    <h3>About</h3>
+    <p>Home DIY Calculators is a free toolkit of six home-improvement calculators — concrete, paint, square footage, mulch &amp; gravel, tile and flooring — built for homeowners and DIYers who want a reliable materials list before they buy. Every formula is shown on the page, every result is calculated live in your browser, and purchasable quantities are always rounded up with the exact figure shown alongside, so you can check the maths yourself.</p>
+  </section>
+
+  <section class="trust" id="privacy">
+    <h3>Privacy</h3>
+    <p>Your inputs never leave your browser. This site has no accounts, no sign-up, no cookies set by us, no analytics and no tracking, and nothing you type into a calculator is collected, stored or transmitted anywhere — the calculations run entirely on your device. The only external request the page makes is to Google Fonts to load the typefaces used for headings and numbers; no calculator data is included in that request.</p>
+  </section>
+
+  <section class="trust" id="terms">
+    <h3>Terms</h3>
+    <p>All results are estimates to help you plan a purchase. Coverage rates, bag yields and waste needs vary with materials, surface condition and technique, so verify quantities with your supplier before buying, and follow the instructions on your products' packaging. These calculators are not professional, structural or engineering advice — for load-bearing or structural work, consult a qualified professional.</p>
+  </section>
+
+  <section class="trust" id="affiliate">
+    <h3>Affiliate Disclosure</h3>
+    <p>There are currently no affiliate links anywhere on this site, and no advertising. Revenue: $0.00. Monetization is not active. If affiliate links or advertising are ever added, this disclosure will be updated and the links will be clearly identified.</p>
+  </section>
+
+  <section class="trust" id="contact">
+    <h3>Contact</h3>
+    <p>Questions, corrections or suggestions: <a href="mailto:janmeshverma6@gmail.com">janmeshverma6@gmail.com</a></p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Calculators</h4>
+        <ul>
+          <li><a href="#concrete">Concrete Calculator</a></li>
+          <li><a href="#paint">Paint Calculator</a></li>
+          <li><a href="#square-footage">Square Footage Calculator</a></li>
+          <li><a href="#mulch-gravel">Mulch &amp; Gravel Calculator</a></li>
+          <li><a href="#tile">Tile Calculator</a></li>
+          <li><a href="#flooring">Flooring Calculator</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="#guide-concrete">How much concrete do I need?</a></li>
+          <li><a href="#guide-paint">How much paint for a room?</a></li>
+          <li><a href="#guide-sqft">How to measure square footage</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <ul>
+          <li><a href="#tools">All tools</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#privacy">Privacy</a></li>
+          <li><a href="#terms">Terms</a></li>
+          <li><a href="#affiliate">Affiliate Disclosure</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="revline">Revenue: $0.00 · Monetization: not active</p>
+    <p>Platform note: this site is published as a single page on shared hosting that cannot serve separate sitemap.xml or robots.txt files. No claim is made about Google indexing or Search Console verification.</p>
+  </div>
+</footer>
+
+<script>
+// Round to 2 decimal places BEFORE ceil, so floating-point noise
+// (e.g. 100 * 1.10 = 110.00000000000001) never inflates a purchasable count.
+function r2(x){ return Math.round(x * 100) / 100; }
+function ceilBuy(x){ return Math.ceil(r2(x)); }
+function num(id){ var v = parseFloat(document.getElementById(id).value); return isNaN(v) || v < 0 ? 0 : v; }
+function fmt(x, d){ return r2(x).toFixed(d === undefined ? 2 : d); }
+function set(id, txt){ document.getElementById(id).textContent = txt; }
+
+function calcConcrete(){
+  var L = num('c-len'), W = num('c-wid'), T = num('c-thk');
+  var vol = L * W * (T / 12);
+  var yd = vol / 27;
+  var b80 = ceilBuy(vol / 0.6), b60 = ceilBuy(vol / 0.45);
+  set('c-vol', fmt(vol) + ' cu ft');
+  set('c-yd', fmt(yd) + ' yd³ (' + fmt(yd * 0.7646) + ' m³)');
+  set('c-b80', b80 + ' bags');
+  set('c-b60', b60 + ' bags');
+  set('c-list', 'Concrete for a ' + L + ' × ' + W + ' ft pour, ' + T + ' in thick: ' + fmt(yd) + ' yd³ ready-mix, or ' + b80 + ' × 80-lb bags, or ' + b60 + ' × 60-lb bags.');
+}
+function calcPaint(){
+  var L = num('p-len'), W = num('p-wid'), H = num('p-hgt');
+  var doors = num('p-doors'), wins = num('p-wins'), coats = Math.max(1, num('p-coats')), cov = Math.max(1, num('p-cov'));
+  var area = 2 * (L + W) * H - doors * 21 - wins * 15;
+  if (document.getElementById('p-ceil').checked) area += L * W;
+  if (area < 0) area = 0;
+  var cover = area * coats;
+  var exact = cover / cov;
+  var buy = ceilBuy(exact);
+  set('p-area', fmt(area, 0) + ' sq ft');
+  set('p-cover', fmt(cover, 0) + ' sq ft');
+  set('p-exact', fmt(exact) + ' gal (' + fmt(exact * 3.785) + ' L)');
+  set('p-buy', buy + ' gal');
+  set('p-list', 'Paint for a ' + L + ' × ' + W + ' ft room, ' + H + ' ft ceilings, ' + coats + ' coat' + (coats === 1 ? '' : 's') + ': buy ' + buy + ' gallons (exact need ' + fmt(exact) + ' gal for ' + fmt(area, 0) + ' sq ft of wall).');
+}
+function calcSqft(){
+  var shape = document.getElementById('s-shape').value;
+  var a = num('s-a'), b = num('s-b'), area = 0, desc = '';
+  if (shape === 'rect'){ area = a * b; desc = a + ' × ' + b + ' ft rectangle'; }
+  if (shape === 'circle'){ area = Math.PI * a * a; desc = 'circle, radius ' + a + ' ft'; }
+  if (shape === 'tri'){ area = a * b / 2; desc = 'triangle, base ' + a + ' ft × height ' + b + ' ft'; }
+  set('s-ft', fmt(area) + ' sq ft');
+  set('s-m', fmt(area * 0.092903) + ' sq m');
+  set('s-list', 'Area (' + desc + '): ' + fmt(area) + ' sq ft (' + fmt(area * 0.092903) + ' sq m). Use this figure in the tile, flooring and mulch & gravel calculators.');
+}
+function shapeLabels(){
+  var shape = document.getElementById('s-shape').value;
+  var la = document.getElementById('s-la'), lb = document.getElementById('s-lb'), f2 = document.getElementById('s-f2');
+  if (shape === 'rect'){ la.innerHTML = 'Length <span class="unit">(ft)</span>'; lb.innerHTML = 'Width <span class="unit">(ft)</span>'; f2.style.display = ''; }
+  if (shape === 'circle'){ la.innerHTML = 'Radius <span class="unit">(ft)</span>'; f2.style.display = 'none'; }
+  if (shape === 'tri'){ la.innerHTML = 'Base <span class="unit">(ft)</span>'; lb.innerHTML = 'Height <span class="unit">(ft)</span>'; f2.style.display = ''; }
+  calcSqft();
+}
+function calcMulch(){
+  var mat = document.getElementById('m-mat').value;
+  var area = num('m-area'), depth = num('m-depth');
+  var vol = area * (depth / 12);
+  var yd = vol / 27;
+  var bags = ceilBuy(vol / 2);
+  set('m-vol', fmt(vol) + ' cu ft');
+  set('m-yd', fmt(yd) + ' cu yd (' + fmt(vol * 0.0283168) + ' m³)');
+  set('m-bags', bags + ' bags');
+  set('m-list', mat + ' for ' + area + ' sq ft at ' + depth + ' in deep: ' + fmt(yd) + ' cu yd in bulk, or ' + bags + ' × 2-cu-ft bags.');
+}
+function calcTile(){
+  var area = num('t-area'), tl = num('t-len'), tw = num('t-wid'), waste = num('t-waste'), box = Math.max(1, num('t-box'));
+  var each = (tl * tw) / 144;
+  var tiles = each > 0 ? ceilBuy(area * (1 + waste / 100) / each) : 0;
+  var boxes = ceilBuy(tiles / box);
+  set('t-each', fmt(each) + ' sq ft');
+  set('t-tiles', tiles + ' tiles');
+  set('t-boxes', boxes + ' boxes');
+  set('t-list', 'Tiles for ' + area + ' sq ft with ' + tl + ' × ' + tw + ' in tiles and ' + waste + '% waste: ' + tiles + ' tiles = ' + boxes + ' boxes of ' + box + '. Plus grout and adhesive per the coverage on their packaging.');
+}
+function calcFlooring(){
+  var area = num('f-area'), cov = num('f-cov'), waste = num('f-waste');
+  var need = r2(area * (1 + waste / 100));
+  var exact = cov > 0 ? need / cov : 0;
+  var buy = ceilBuy(exact);
+  set('f-need', fmt(need, 0) + ' sq ft');
+  set('f-exact', fmt(exact, 1));
+  set('f-buy', buy + ' boxes');
+  set('f-list', 'Flooring for ' + area + ' sq ft with ' + waste + '% waste: ' + fmt(need, 0) + ' sq ft of coverage = ' + buy + ' boxes at ' + cov + ' sq ft per box. Plus underlayment to match the room area.');
+}
+
+var bindings = [
+  ['c-len', calcConcrete], ['c-wid', calcConcrete], ['c-thk', calcConcrete],
+  ['p-len', calcPaint], ['p-wid', calcPaint], ['p-hgt', calcPaint], ['p-doors', calcPaint],
+  ['p-wins', calcPaint], ['p-coats', calcPaint], ['p-cov', calcPaint], ['p-ceil', calcPaint],
+  ['s-a', calcSqft], ['s-b', calcSqft],
+  ['m-area', calcMulch], ['m-depth', calcMulch], ['m-mat', calcMulch],
+  ['t-area', calcTile], ['t-len', calcTile], ['t-wid', calcTile], ['t-waste', calcTile], ['t-box', calcTile],
+  ['f-area', calcFlooring], ['f-cov', calcFlooring], ['f-waste', calcFlooring]
+];
+bindings.forEach(function(pair){
+  var el = document.getElementById(pair[0]);
+  el.addEventListener('input', pair[1]);
+  el.addEventListener('change', pair[1]);
+});
+document.getElementById('s-shape').addEventListener('change', shapeLabels);
+
+document.querySelectorAll('[data-copy]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var text = document.getElementById(btn.getAttribute('data-copy')).textContent;
+    var note = btn.parentElement.querySelector('.copied');
+    function done(){ if (note){ note.textContent = 'Copied ✓'; setTimeout(function(){ note.textContent = ''; }, 2000); } }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, done);
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta); done();
+    }
+  });
+});
+
+calcConcrete(); calcPaint(); calcSqft(); calcMulch(); calcTile(); calcFlooring();
+</script>
+</body>
+</html>
