@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="color-scheme" content="light dark" />
+<meta name="color-scheme" content="light" />
 <link rel="icon" href="data:," />
 <title>Concrete, Paint, Tile &amp; Flooring Calculators — Free Home DIY Calculators</title>
 <meta name="description" content="Free concrete, paint, square footage, mulch, tile and flooring calculators with printable materials lists. No sign-up, nothing uploaded." />
 <meta name="robots" content="index, follow" />
-<link rel="canonical" href="https://muse.ai/s/home-diy-calculators" />
+<link rel="canonical" href="https://activemuse5.github.io/home-diy-calculators/" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Concrete, Paint, Tile &amp; Flooring Calculators — Free Home DIY Calculators" />
 <meta property="og:description" content="Free home &amp; DIY calculators with printable materials lists. No sign-up, nothing uploaded, everything calculated in your browser." />
@@ -59,16 +59,13 @@
 </script>
 <style>
   :root{
-    --bg:#f6f4ef; --surface:#ffffff; --surface2:#efece4; --ink:#1d2126; --ink2:#4c5560;
-    --line:#d9d4c7; --accent:#b34a12; --accent-ink:#ffffff; --accent-soft:#fbeadd;
-    --good:#1e6b3a; --radius:10px; --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --bg:#f8fafc; --surface:#ffffff; --surface2:#f1f5f9; --ink:#0f172a; --ink2:#475569;
+    --line:#e2e8f0; --line2:#cbd5e1; --accent:#ea580c; --accent2:#f97316; --accent-dark:#9a3412;
+    --accent-ink:#ffffff; --accent-soft:#fff7ed; --accent-soft2:#ffedd5; --accent-line:#fed7aa;
+    --good:#15803d; --radius:16px; --mono:"IBM Plex Mono",ui-monospace,monospace;
     --sans:"Libre Franklin",system-ui,-apple-system,"Segoe UI",sans-serif;
-  }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --bg:#16181b; --surface:#1f2226; --surface2:#262a2f; --ink:#eceae4; --ink2:#a9b0b8;
-      --line:#3a3f45; --accent:#e07b39; --accent-ink:#1a1208; --accent-soft:#33241a; --good:#5fc98a;
-    }
+    --shadow:0 1px 3px rgba(15,23,42,.05),0 10px 28px -14px rgba(15,23,42,.14);
+    --shadow-lg:0 2px 6px rgba(15,23,42,.05),0 24px 44px -20px rgba(234,88,12,.22);
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -76,79 +73,112 @@
   button,[role="button"],select,summary,input:not([type="checkbox"]){min-height:2.25rem}
   input[type="checkbox"]{width:1.25rem;height:1.25rem;accent-color:var(--accent)}
   a{color:var(--accent)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  ::selection{background:var(--accent-soft2)}
   .wrap{max-width:1060px;margin:0 auto;padding:0 18px}
-  header.site{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:20}
+  /* ---------- sticky nav ---------- */
+  header.site{position:sticky;top:0;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:0 1px 12px rgba(15,23,42,.05);z-index:20}
   header.site .wrap{display:flex;align-items:center;gap:14px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
-  .brand{font-weight:800;font-size:1.05rem;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
-  .brand span{color:var(--accent)}
+  .brand{font-weight:800;font-size:1.05rem;letter-spacing:-.01em;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:10px}
+  .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;box-shadow:0 4px 10px -3px rgba(234,88,12,.55)}
+  .brand .logo svg{width:20px;height:20px}
+  .brand .bname b{color:var(--accent);font-weight:800}
   nav.main{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
-  nav.main a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem;padding:8px 10px;border-radius:8px;min-height:36px;display:inline-flex;align-items:center}
-  nav.main a:hover{background:var(--surface2)}
-  .hero{padding:44px 0 10px}
+  nav.main a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem;padding:8px 12px;border-radius:999px;min-height:36px;display:inline-flex;align-items:center}
+  nav.main a:hover{background:var(--accent-soft);color:var(--accent-dark)}
+  /* ---------- hero ---------- */
+  .hero{margin-top:26px;padding:40px 34px 30px;border:1px solid var(--accent-line);border-radius:20px;background:linear-gradient(180deg,#fffbf5,var(--accent-soft));position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(234,88,12,.16) 1.2px,transparent 0);background-size:22px 22px;pointer-events:none}
+  .hero>*{position:relative}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--accent-line);color:var(--accent-dark);font-weight:700;font-size:.8rem;padding:6px 13px;border-radius:999px;margin-bottom:18px;box-shadow:0 2px 8px -2px rgba(234,88,12,.25)}
+  .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);flex:none}
   .hero h1{font-size:clamp(1.9rem,4.6vw,2.9rem);line-height:1.12;letter-spacing:-.02em;margin:0 0 14px;font-weight:800}
-  .hero p.lede{font-size:1.12rem;color:var(--ink2);max-width:44rem;margin:0 0 22px}
-  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 8px}
-  .fact{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px}
-  .fact b{display:block;font-size:1.25rem;font-family:var(--mono);font-weight:600}
+  .hero p.lede{font-size:1.12rem;color:var(--ink2);max-width:44rem;margin:0 0 24px}
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0}
+  .fact{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:13px 15px;box-shadow:0 2px 8px -3px rgba(15,23,42,.10)}
+  .fact b{display:block;font-size:1.3rem;font-weight:800;color:var(--accent);letter-spacing:-.01em}
   .fact span{font-size:.85rem;color:var(--ink2)}
-  h2.sec{font-size:1.55rem;letter-spacing:-.015em;margin:44px 0 6px;font-weight:800}
+  /* ---------- section headings ---------- */
+  h2.sec{font-size:1.55rem;letter-spacing:-.015em;margin:48px 0 6px;font-weight:800;scroll-margin-top:84px}
+  h2.sec::before{content:"";display:block;width:42px;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--accent2),var(--accent));margin-bottom:12px}
   .sec-sub{color:var(--ink2);margin:0 0 18px;max-width:44rem}
+  /* ---------- start cards ---------- */
   .start-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-  .start-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;text-decoration:none;color:var(--ink);display:block}
-  .start-card:hover{border-color:var(--accent)}
-  .start-card .ic{font-size:1.5rem;display:block;margin-bottom:8px}
+  .start-card{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent2);border-radius:var(--radius);padding:18px;text-decoration:none;color:var(--ink);display:block;box-shadow:var(--shadow)}
+  .start-card:hover{border-color:var(--accent-line);border-top-color:var(--accent);box-shadow:var(--shadow-lg)}
+  .start-card .ic{width:42px;height:42px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:inline-flex;align-items:center;justify-content:center;margin-bottom:10px}
+  .start-card .ic svg{width:22px;height:22px}
   .start-card b{display:block;font-size:1.05rem;margin-bottom:4px}
   .start-card span{color:var(--ink2);font-size:.92rem}
-  .tool{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin:0 0 22px;scroll-margin-top:80px}
-  .tool h3{margin:0 0 4px;font-size:1.3rem;letter-spacing:-.01em}
-  .tool .formula{font-family:var(--mono);font-size:.85rem;background:var(--surface2);border-radius:8px;padding:8px 12px;margin:10px 0 16px;white-space:normal;overflow-wrap:break-word;line-height:1.6}
+  .start-card .ic{color:var(--accent)}
+  /* ---------- calculator cards ---------- */
+  .tool{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:var(--radius);padding:26px;margin:0 0 22px;scroll-margin-top:84px;box-shadow:var(--shadow)}
+  .tool h3{margin:0 0 4px;font-size:1.3rem;letter-spacing:-.01em;display:flex;align-items:center;gap:12px}
+  .tool h3 .tic{width:42px;height:42px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:inline-flex;align-items:center;justify-content:center;flex:none}
+  .tool h3 .tic svg{width:22px;height:22px}
+  .tool .formula{font-family:var(--mono);font-size:.85rem;color:var(--ink2);background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:9px 13px;margin:12px 0 18px;white-space:normal;overflow-wrap:break-word;line-height:1.6}
   .tool p.note{color:var(--ink2);font-size:.94rem}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  @media (max-width:760px){.grid{grid-template-columns:1fr}}
+  @media (max-width:760px){.grid{grid-template-columns:1fr}.hero{padding:30px 20px 24px}}
   .fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .field{min-width:0}
   .field label{display:block;font-size:.85rem;font-weight:600;margin-bottom:4px}
-  .field input,.field select{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:1rem;font-family:inherit}
+  .field input,.field select{width:100%;padding:9px 11px;border:1px solid var(--line2);border-radius:10px;background:var(--surface);color:var(--ink);font-size:1rem;font-family:inherit}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(249,115,22,.28)}
   .field .unit{font-size:.78rem;color:var(--ink2);font-weight:400}
   .check{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:.95rem}
   .check label{min-height:36px;display:inline-flex;align-items:center;cursor:pointer}
-  .results{background:var(--accent-soft);border-radius:var(--radius);padding:16px 18px}
-  .results h4{margin:0 0 10px;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2)}
-  .rrow{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px dashed var(--line)}
-  .rrow:last-of-type{border-bottom:none}
-  .rrow .k{color:var(--ink2);font-size:.94rem}
-  .rrow .v{font-family:var(--mono);font-weight:600;text-align:right;white-space:nowrap}
-  .rrow.buy .v{color:var(--accent);font-size:1.08rem}
-  .matlist{margin-top:14px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:.92rem}
+  /* ---------- results ---------- */
+  .results{background:linear-gradient(180deg,var(--accent-soft),var(--accent-soft2));border:1px solid var(--accent-line);border-radius:var(--radius);padding:20px}
+  .results h4{margin:0 0 12px;font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;color:var(--accent-dark)}
+  .rhero{margin:0 0 14px}
+  .rhero .rk{display:block;font-size:.92rem;font-weight:600;color:var(--ink2);margin-bottom:2px}
+  .rhero .rv{display:block;font-size:clamp(2.3rem,5vw,3rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--accent)}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px}
+  .tile{background:var(--surface);border:1px solid var(--accent-line);border-radius:12px;padding:10px 12px;min-width:0}
+  .tile .k{display:block;font-size:.78rem;color:var(--ink2);margin-bottom:2px}
+  .tile .v{font-family:var(--mono);font-weight:600;font-size:1rem;overflow-wrap:break-word}
+  .matlist{margin-top:14px;background:var(--surface);border:1px solid var(--accent-line);border-radius:10px;padding:12px 14px;font-size:.92rem}
   .matlist b{display:block;margin-bottom:4px;font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink2)}
-  .copybtn{margin-top:10px;background:var(--accent);color:var(--accent-ink);border:none;border-radius:8px;padding:9px 16px;font-weight:700;font-size:.92rem;cursor:pointer;font-family:inherit;min-height:40px}
-  .copybtn:hover{opacity:.9}
-  .copied{font-size:.85rem;color:var(--good);margin-left:8px}
-  .guide{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;margin:0 0 20px;scroll-margin-top:80px}
-  .guide h3{margin:0 0 10px;font-size:1.25rem}
+  .copybtn{margin-top:12px;background:var(--accent);color:var(--accent-ink);border:none;border-radius:10px;padding:10px 18px;font-weight:700;font-size:.92rem;cursor:pointer;font-family:inherit;min-height:40px;box-shadow:0 4px 12px -4px rgba(234,88,12,.55)}
+  .copybtn:hover{background:#c2410c}
+  .copied{font-size:.85rem;color:var(--good);margin-left:8px;font-weight:600}
+  /* ---------- guides ---------- */
+  .guide{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent2);border-radius:var(--radius);padding:26px;margin:0 0 20px;scroll-margin-top:84px;box-shadow:var(--shadow)}
+  .guide h3{margin:0 0 10px;font-size:1.25rem;letter-spacing:-.01em}
   .guide p{color:var(--ink2);max-width:46rem}
   .guide p b,.guide li b{color:var(--ink)}
-  .guide .ex{font-family:var(--mono);font-size:.9rem;background:var(--surface2);border-radius:8px;padding:10px 14px;margin:12px 0;white-space:normal;overflow-wrap:break-word;line-height:1.6}
-  .cta{display:inline-block;margin-top:8px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:700;padding:10px 18px;border-radius:8px;min-height:40px}
-  details.faq{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);margin:0 0 10px;padding:4px 18px}
-  details.faq summary{font-weight:700;cursor:pointer;padding:12px 0;min-height:44px;display:flex;align-items:center}
-  details.faq p{color:var(--ink2);margin:0 0 14px;max-width:46rem}
-  .trust{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin:0 0 18px;scroll-margin-top:80px}
+  .guide .ex{font-family:var(--mono);font-size:.9rem;color:var(--ink);background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:10px;padding:11px 15px;margin:12px 0;white-space:normal;overflow-wrap:break-word;line-height:1.6}
+  .cta{display:inline-block;margin-top:8px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:700;padding:10px 18px;border-radius:10px;min-height:40px;box-shadow:0 4px 12px -4px rgba(234,88,12,.55)}
+  .cta:hover{background:#c2410c}
+  /* ---------- FAQ accordion ---------- */
+  details.faq{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin:0 0 10px;padding:2px 18px;box-shadow:0 1px 4px rgba(15,23,42,.04)}
+  details.faq[open ]{border-color:var(--accent-line)}
+  details.faq summary{font-weight:700;cursor:pointer;padding:13px 0;min-height:44px;display:flex;align-items:center;gap:10px;list-style:none}
+  details.faq summary::-webkit-details-marker{display:none}
+  details.faq summary::after{content:"";margin-left:auto;flex:none;width:9px;height:9px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(45deg);transition:transform .15s ease}
+  details.faq[open ] summary::after{transform:rotate(225deg)}
+  details.faq p{color:var(--ink2);margin:0 0 15px;max-width:46rem}
+  /* ---------- trust sections ---------- */
+  .trust{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;margin:0 0 18px;scroll-margin-top:84px;box-shadow:var(--shadow)}
   .trust h3{margin:0 0 8px;font-size:1.15rem}
   .trust p{color:var(--ink2);margin:0 0 10px;max-width:46rem}
-  footer{border-top:1px solid var(--line);margin-top:48px;padding:26px 0 40px;color:var(--ink2);font-size:.9rem}
-  footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;margin-bottom:18px}
-  footer h4{color:var(--ink);margin:0 0 8px;font-size:.95rem}
+  /* ---------- footer ---------- */
+  footer{background:var(--surface);border-top:1px solid var(--line);margin-top:52px;padding:32px 0 42px;color:var(--ink2);font-size:.9rem}
+  footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:22px;margin-bottom:20px}
+  footer h4{color:var(--ink);margin:0 0 10px;font-size:.95rem}
   footer ul{list-style:none;margin:0;padding:0}
-  footer li{margin:4px 0}
-  footer a{color:var(--ink2)}
-  .revline{font-family:var(--mono);font-size:.85rem}
-  @media print{.tool,.guide{break-inside:avoid}header.site,.copybtn,.start-grid{display:none}}
+  footer li{margin:5px 0}
+  footer a{color:var(--ink2);text-decoration:none}
+  footer a:hover{color:var(--accent)}
+  .revline{font-family:var(--mono);font-size:.85rem;color:var(--ink)}
+  @media print{.tool,.guide{break-inside:avoid}header.site,.copybtn,.start-grid,.badge{display:none}.hero{border:none;background:none}.hero::before{display:none}}
 </style>
 </head>
 <body>
 <header class="site">
   <div class="wrap">
-    <a class="brand" href="#top">Home <span>DIY</span> Calculators</a>
+    <a class="brand" href="#top"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg></span><span class="bname">Home <b>DIY</b> Calculators</span></a>
     <nav class="main" aria-label="Main">
       <a href="#tools">Tools</a>
       <a href="#guides">Guides</a>
@@ -161,6 +191,7 @@
 
 <main class="wrap" id="top">
   <section class="hero">
+    <span class="badge"><span class="dot"></span>6 free calculators &middot; No sign-up</span>
     <h1>Work out exactly what to buy — before you go to the store.</h1>
     <p class="lede">Six free home &amp; DIY calculators — no sign-up, nothing uploaded, results include a printable materials list. Enter your measurements and get exact quantities: cubic yards, bags, gallons, tiles and boxes, rounded up to what you actually buy.</p>
     <div class="facts" aria-label="Site facts">
@@ -174,10 +205,10 @@
   <h2 class="sec">Start here — pick your project</h2>
   <p class="sec-sub">Jump straight to the calculator for the job in front of you.</p>
   <div class="start-grid">
-    <a class="start-card" href="#concrete"><b>Pouring concrete</b><span>Slabs, footings and pads — cubic yards plus 60-lb and 80-lb bag counts.</span></a>
-    <a class="start-card" href="#paint"><b>Painting a room</b><span>Wall area minus doors and windows, coats and coverage — gallons to buy.</span></a>
-    <a class="start-card" href="#tile"><b>Floors &amp; tiles</b><span>Square footage, tile counts and flooring boxes with a waste allowance.</span></a>
-    <a class="start-card" href="#mulch-gravel"><b>Yard &amp; garden</b><span>Mulch, gravel and soil by area and depth — cubic yards and bag counts.</span></a>
+    <a class="start-card" href="#concrete"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 12h18"/><path d="M9 5v7M15 5v7M12 12v7"/></svg></span><b>Pouring concrete</b><span>Slabs, footings and pads — cubic yards plus 60-lb and 80-lb bag counts.</span></a>
+    <a class="start-card" href="#paint"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="14" height="6" rx="1"/><path d="M17 6h3v5h-9v3"/><rect x="9.5" y="14" width="3" height="7" rx="1"/></svg></span><b>Painting a room</b><span>Wall area minus doors and windows, coats and coverage — gallons to buy.</span></a>
+    <a class="start-card" href="#tile"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M12 3v18M3 12h18"/></svg></span><b>Floors &amp; tiles</b><span>Square footage, tile counts and flooring boxes with a waste allowance.</span></a>
+    <a class="start-card" href="#mulch-gravel"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19C5 10 12 4 20 4c0 8-5 15-14 15"/><path d="M5 19c2-5 5-8 9-10"/></svg></span><b>Yard &amp; garden</b><span>Mulch, gravel and soil by area and depth — cubic yards and bag counts.</span></a>
   </div>
 
   <h2 class="sec" id="tools">The calculators</h2>
@@ -185,7 +216,7 @@
 
   <!-- 1. CONCRETE -->
   <section class="tool" id="concrete" aria-labelledby="concrete-h">
-    <h3 id="concrete-h">1. Concrete Calculator</h3>
+    <h3 id="concrete-h"><span class="tic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 12h18"/><path d="M9 5v7M15 5v7M12 12v7"/></svg></span>1. Concrete Calculator</h3>
     <p class="note">For slabs, pads and footings. Enter the length and width of the pour and how thick it will be.</p>
     <div class="formula">Volume (cu ft) = length × width × (thickness ÷ 12) · Cubic yards = cu ft ÷ 27 · 80-lb bag = 0.6 cu ft · 60-lb bag = 0.45 cu ft</div>
     <div class="grid">
@@ -199,10 +230,12 @@
       </div>
       <div class="results" aria-live="polite">
         <h4>Results</h4>
-        <div class="rrow"><span class="k">Volume</span><span class="v" id="c-vol">33.33 cu ft</span></div>
-        <div class="rrow"><span class="k">Cubic yards (ready-mix)</span><span class="v" id="c-yd">1.23 yd³</span></div>
-        <div class="rrow buy"><span class="k">80-lb bags to buy</span><span class="v" id="c-b80">56 bags</span></div>
-        <div class="rrow buy"><span class="k">60-lb bags to buy</span><span class="v" id="c-b60">75 bags</span></div>
+        <div class="rhero"><span class="rk">80-lb bags to buy</span><span class="rv" id="c-b80">56 bags</span></div>
+        <div class="tiles">
+          <div class="tile"><span class="k">Volume</span><span class="v" id="c-vol">33.33 cu ft</span></div>
+          <div class="tile"><span class="k">Cubic yards (ready-mix)</span><span class="v" id="c-yd">1.23 yd³</span></div>
+          <div class="tile"><span class="k">60-lb bags to buy</span><span class="v" id="c-b60">75 bags</span></div>
+        </div>
         <div class="matlist"><b>Materials list</b><span id="c-list">Concrete for a 10 × 10 ft slab, 4 in thick: 1.23 yd³ ready-mix, or 56 × 80-lb bags, or 75 × 60-lb bags.</span></div>
         <button class="copybtn" type="button" data-copy="c-list">Copy materials list</button><span class="copied" aria-live="polite"></span>
       </div>
@@ -211,7 +244,7 @@
 
   <!-- 2. PAINT -->
   <section class="tool" id="paint" aria-labelledby="paint-h">
-    <h3 id="paint-h">2. Paint Calculator</h3>
+    <h3 id="paint-h"><span class="tic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="14" height="6" rx="1"/><path d="M17 6h3v5h-9v3"/><rect x="9.5" y="14" width="3" height="7" rx="1"/></svg></span>2. Paint Calculator</h3>
     <p class="note">Works out the paintable wall area of a rectangular room, subtracts doors and windows, and applies your number of coats.</p>
     <div class="formula">Wall area = 2 × (length + width) × height − (doors × 21 sq ft) − (windows × 15 sq ft) · Gallons = area × coats ÷ coverage per gallon</div>
     <div class="grid">
@@ -230,10 +263,12 @@
       </div>
       <div class="results" aria-live="polite">
         <h4>Results</h4>
-        <div class="rrow"><span class="k">Paintable area (one coat)</span><span class="v" id="p-area">301 sq ft</span></div>
-        <div class="rrow"><span class="k">Total to cover (all coats)</span><span class="v" id="p-cover">602 sq ft</span></div>
-        <div class="rrow"><span class="k">Gallons (exact)</span><span class="v" id="p-exact">1.72 gal</span></div>
-        <div class="rrow buy"><span class="k">Gallons to buy</span><span class="v" id="p-buy">2 gal</span></div>
+        <div class="rhero"><span class="rk">Gallons to buy</span><span class="rv" id="p-buy">2 gal</span></div>
+        <div class="tiles">
+          <div class="tile"><span class="k">Paintable area (one coat)</span><span class="v" id="p-area">301 sq ft</span></div>
+          <div class="tile"><span class="k">Total to cover (all coats)</span><span class="v" id="p-cover">602 sq ft</span></div>
+          <div class="tile"><span class="k">Gallons (exact)</span><span class="v" id="p-exact">1.72 gal</span></div>
+        </div>
         <div class="matlist"><b>Materials list</b><span id="p-list">Paint for a 12 × 10 ft room, 8 ft ceilings, 2 coats: buy 2 gallons (exact need 1.72 gal for 301 sq ft of wall).</span></div>
         <button class="copybtn" type="button" data-copy="p-list">Copy materials list</button><span class="copied" aria-live="polite"></span>
       </div>
@@ -242,7 +277,7 @@
 
   <!-- 3. SQUARE FOOTAGE -->
   <section class="tool" id="square-footage" aria-labelledby="sqft-h">
-    <h3 id="sqft-h">3. Square Footage Calculator</h3>
+    <h3 id="sqft-h"><span class="tic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="9" width="19" height="6" rx="1"/><path d="M6.5 9v3M10.5 9v3M14.5 9v3M18.5 9v3"/></svg></span>3. Square Footage Calculator</h3>
     <p class="note">The starting point for almost every project: floors, walls, beds and plots. Pick a shape and measure it.</p>
     <div class="formula">Rectangle: length × width · Circle: π × radius² · Triangle: base × height ÷ 2 · 1 sq ft = 0.0929 sq m</div>
     <div class="grid">
@@ -262,8 +297,10 @@
       </div>
       <div class="results" aria-live="polite">
         <h4>Results</h4>
-        <div class="rrow buy"><span class="k">Area</span><span class="v" id="s-ft">120 sq ft</span></div>
-        <div class="rrow"><span class="k">Area (metric)</span><span class="v" id="s-m">11.15 sq m</span></div>
+        <div class="rhero"><span class="rk">Area</span><span class="rv" id="s-ft">120 sq ft</span></div>
+        <div class="tiles">
+          <div class="tile"><span class="k">Area (metric)</span><span class="v" id="s-m">11.15 sq m</span></div>
+        </div>
         <div class="matlist"><b>Materials list</b><span id="s-list">Area: 120 sq ft (11.15 sq m). Use this figure in the tile, flooring and mulch &amp; gravel calculators.</span></div>
         <button class="copybtn" type="button" data-copy="s-list">Copy materials list</button><span class="copied" aria-live="polite"></span>
       </div>
@@ -272,7 +309,7 @@
 
   <!-- 4. MULCH & GRAVEL -->
   <section class="tool" id="mulch-gravel" aria-labelledby="mulch-h">
-    <h3 id="mulch-h">4. Mulch &amp; Gravel Calculator</h3>
+    <h3 id="mulch-h"><span class="tic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19C5 10 12 4 20 4c0 8-5 15-14 15"/><path d="M5 19c2-5 5-8 9-10"/></svg></span>4. Mulch &amp; Gravel Calculator</h3>
     <p class="note">For garden beds, paths and driveways. Enter the area to cover and how deep the layer should be.</p>
     <div class="formula">Volume (cu ft) = area × (depth ÷ 12) · Cubic yards = cu ft ÷ 27 · Bags = volume ÷ 2 cu ft per bag</div>
     <div class="grid">
@@ -292,9 +329,11 @@
       </div>
       <div class="results" aria-live="polite">
         <h4>Results</h4>
-        <div class="rrow"><span class="k">Volume</span><span class="v" id="m-vol">25 cu ft</span></div>
-        <div class="rrow"><span class="k">Cubic yards (bulk)</span><span class="v" id="m-yd">0.93 cu yd</span></div>
-        <div class="rrow buy"><span class="k">2-cu-ft bags to buy</span><span class="v" id="m-bags">13 bags</span></div>
+        <div class="rhero"><span class="rk">2-cu-ft bags to buy</span><span class="rv" id="m-bags">13 bags</span></div>
+        <div class="tiles">
+          <div class="tile"><span class="k">Volume</span><span class="v" id="m-vol">25 cu ft</span></div>
+          <div class="tile"><span class="k">Cubic yards (bulk)</span><span class="v" id="m-yd">0.93 cu yd</span></div>
+        </div>
         <div class="matlist"><b>Materials list</b><span id="m-list">Mulch for 100 sq ft at 3 in deep: 0.93 cu yd in bulk, or 13 × 2-cu-ft bags.</span></div>
         <button class="copybtn" type="button" data-copy="m-list">Copy materials list</button><span class="copied" aria-live="polite"></span>
       </div>
@@ -303,7 +342,7 @@
 
   <!-- 5. TILE -->
   <section class="tool" id="tile" aria-labelledby="tile-h">
-    <h3 id="tile-h">5. Tile Calculator</h3>
+    <h3 id="tile-h"><span class="tic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M12 3v18M3 12h18"/></svg></span>5. Tile Calculator</h3>
     <p class="note">Counts tiles and boxes for a floor or wall, including your waste allowance for cuts and breakages.</p>
     <div class="formula">Tile area (sq ft) = tile length × tile width ÷ 144 · Tiles = ceil(area × (1 + waste%) ÷ tile area) · Boxes = ceil(tiles ÷ tiles per box)</div>
     <div class="grid">
@@ -319,9 +358,11 @@
       </div>
       <div class="results" aria-live="polite">
         <h4>Results</h4>
-        <div class="rrow"><span class="k">Each tile covers</span><span class="v" id="t-each">1 sq ft</span></div>
-        <div class="rrow buy"><span class="k">Tiles needed (incl. waste)</span><span class="v" id="t-tiles">110 tiles</span></div>
-        <div class="rrow buy"><span class="k">Boxes to buy</span><span class="v" id="t-boxes">11 boxes</span></div>
+        <div class="rhero"><span class="rk">Tiles needed (incl. waste)</span><span class="rv" id="t-tiles">110 tiles</span></div>
+        <div class="tiles">
+          <div class="tile"><span class="k">Each tile covers</span><span class="v" id="t-each">1 sq ft</span></div>
+          <div class="tile"><span class="k">Boxes to buy</span><span class="v" id="t-boxes">11 boxes</span></div>
+        </div>
         <div class="matlist"><b>Materials list</b><span id="t-list">Tiles for 100 sq ft with 12 × 12 in tiles and 10% waste: 110 tiles = 11 boxes of 10. Plus grout and adhesive per the coverage on their packaging.</span></div>
         <button class="copybtn" type="button" data-copy="t-list">Copy materials list</button><span class="copied" aria-live="polite"></span>
       </div>
@@ -330,7 +371,7 @@
 
   <!-- 6. FLOORING -->
   <section class="tool" id="flooring" aria-labelledby="floor-h">
-    <h3 id="floor-h">6. Flooring Calculator</h3>
+    <h3 id="floor-h"><span class="tic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9.3h18M3 14.6h18"/><path d="M9 4v5.3M15 9.3v5.3M8 14.6V20"/></svg></span>6. Flooring Calculator</h3>
     <p class="note">For laminate, vinyl plank and engineered wood sold by the box. Enter your room area and the coverage printed on the box.</p>
     <div class="formula">Coverage needed = area × (1 + waste%) · Boxes = ceil(coverage needed ÷ sq ft per box)</div>
     <div class="grid">
@@ -344,9 +385,11 @@
       </div>
       <div class="results" aria-live="polite">
         <h4>Results</h4>
-        <div class="rrow"><span class="k">Coverage needed (incl. waste)</span><span class="v" id="f-need">220 sq ft</span></div>
-        <div class="rrow"><span class="k">Boxes (exact)</span><span class="v" id="f-exact">11.0</span></div>
-        <div class="rrow buy"><span class="k">Boxes to buy</span><span class="v" id="f-buy">11 boxes</span></div>
+        <div class="rhero"><span class="rk">Boxes to buy</span><span class="rv" id="f-buy">11 boxes</span></div>
+        <div class="tiles">
+          <div class="tile"><span class="k">Coverage needed (incl. waste)</span><span class="v" id="f-need">220 sq ft</span></div>
+          <div class="tile"><span class="k">Boxes (exact)</span><span class="v" id="f-exact">11.0</span></div>
+        </div>
         <div class="matlist"><b>Materials list</b><span id="f-list">Flooring for 200 sq ft with 10% waste: 220 sq ft of coverage = 11 boxes at 20 sq ft per box. Plus underlayment to match the room area.</span></div>
         <button class="copybtn" type="button" data-copy="f-list">Copy materials list</button><span class="copied" aria-live="polite"></span>
       </div>
